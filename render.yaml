@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: muzikazmodelmarket
+    runtime: static
+    buildCommand: npm run build
+    staticPublishPath: dist

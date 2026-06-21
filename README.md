@@ -25,3 +25,5 @@ npm run build
 ```
 
 The build writes the site to `dist/` for Netlify and also mirrors it to `a1/` so deployments configured with `a1` as the publish directory continue to work.
+
+Render can use the included `render.yaml` blueprint, which runs the same build command and publishes the generated `dist/` directory.

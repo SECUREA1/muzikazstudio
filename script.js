@@ -1,22 +1,28 @@
 const menuButton = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.nav');
+const nav = document.querySelector('#primary-navigation');
 
 menuButton?.addEventListener('click', () => {
-  const isOpen = nav.style.display === 'flex';
-  nav.style.display = isOpen ? 'none' : 'flex';
-  nav.style.position = 'absolute';
-  nav.style.top = '78px';
-  nav.style.left = '0';
-  nav.style.right = '0';
-  nav.style.padding = '22px';
-  nav.style.background = '#000';
-  nav.style.flexDirection = 'column';
-  menuButton.setAttribute('aria-expanded', String(!isOpen));
+  const isOpen = nav?.classList.toggle('is-open') ?? false;
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+});
+
+nav?.addEventListener('click', (event) => {
+  if (event.target instanceof HTMLAnchorElement) {
+    nav.classList.remove('is-open');
+    menuButton?.setAttribute('aria-expanded', 'false');
+  }
 });
 
 document.querySelector('.newsletter form')?.addEventListener('submit', (event) => {
   event.preventDefault();
-  const input = event.currentTarget.querySelector('input');
-  alert(`Welcome to the crew${input.value ? ', ' + input.value : ''}!`);
-  input.value = '';
+
+  const form = event.currentTarget;
+  const input = form instanceof HTMLFormElement ? form.querySelector('input[type="email"]') : null;
+  const email = input instanceof HTMLInputElement ? input.value.trim() : '';
+
+  alert(`Welcome to the crew${email ? `, ${email}` : ''}!`);
+
+  if (input instanceof HTMLInputElement) {
+    input.value = '';
+  }
 });

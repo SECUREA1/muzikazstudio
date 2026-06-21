@@ -1,0 +1,10 @@
+{
+  "name": "muzikazmodelmarket",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static MUZIKAZ model-market landing page.",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "serve": "python3 -m http.server 4173"
+  }
+}

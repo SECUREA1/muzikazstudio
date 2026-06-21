@@ -15,3 +15,13 @@ You can also run the site without npm:
 ```sh
 python3 -m http.server 4173
 ```
+
+## Build and deploy
+
+Build the static site before deployment:
+
+```sh
+npm run build
+```
+
+The build writes the site to `dist/` for Netlify and also mirrors it to `a1/` so deployments configured with `a1` as the publish directory continue to work.

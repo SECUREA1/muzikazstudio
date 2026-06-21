@@ -5,6 +5,7 @@
   "description": "Static MUZIKAZ model-market landing page.",
   "scripts": {
     "start": "python3 -m http.server 4173",
-    "serve": "python3 -m http.server 4173"
+    "serve": "python3 -m http.server 4173",
+    "build": "node scripts/build-static.mjs"
   }
 }

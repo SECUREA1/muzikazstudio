@@ -25,7 +25,7 @@ async function collectStaticFiles() {
     if (!info.isFile()) continue;
 
     const extension = path.extname(entry).toLowerCase();
-    if (copyNames.has(entry) || assetExtensions.has(extension)) {
+    if (copyNames.has(entry) || extension === '.html' || assetExtensions.has(extension)) {
       files.push(entry);
     }
   }

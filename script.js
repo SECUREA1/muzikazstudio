@@ -26,3 +26,12 @@ document.querySelector('.newsletter form')?.addEventListener('submit', (event) =
     input.value = '';
   }
 });
+
+document.querySelectorAll('.add-market').forEach((button) => {
+  button.addEventListener('click', () => {
+    const card = button.closest('.market-card');
+    card?.classList.add('added');
+    const model = button.getAttribute('data-model') || 'Model';
+    button.textContent = `${model} added`;
+  });
+});
